@@ -1,0 +1,8 @@
+let rec func d=
+    seq {
+        for x = 0 to System.IO.Directory.GetFiles(@"C:\Users\Влад\Desktop\ЯП1\", "*.txt").Length - 1 do
+            yield System.IO.Directory.GetFiles(d)[x]
+            for i in System.IO.Directory.GetDirectories(d) do
+                yield! func i
+}
+printfn "%A" (func "C:\Users\Влад\Desktop\ЯП1")
